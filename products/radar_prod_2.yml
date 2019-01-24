@@ -19,6 +19,5 @@ rain: false           # A la elevacion indicada le hace el procesamiento de prec
 
 # Para backend-radar.py
 radares: [PAR, PER]
-step: 2
+step: 10
 active: true
-changed: false
