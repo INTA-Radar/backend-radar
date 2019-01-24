@@ -11,7 +11,8 @@ que se encuentren disponibles en [radar-cmd](https://github.com/INTA-Radar/radar
 4. [pexpect](https://pypi.org/project/pexpect/)
 5. [crontab](https://pypi.org/project/crontab/)
 
-## Uso
+## Configuraciones
+
 Dentro de la carpeta raiz se encuentra un archivo de configuración _**confs.yml**_ en el 
 cual se deben establecer las siguientes propiedades:
 1. products_yml_dir: carpeta donde se encuentran los archivos yml 
@@ -49,7 +50,12 @@ Se deben establecer las siguientes propiedades:
 8. python_bin: directorio donde se encuentra python3, si se establece '' (cadena vacia) se usa 
 el configurado por el SO.
 
-
-
 Todos los valores deben ser caminos absolutos a las carpetas correspondientes.
 
+## Puesta en marcha
+
+Para dar comienzo a la herramienta debe ejecutarse el script `JobsUpdater` pasando como
+parametro en `-u` el nombre del usuario del SO al que se le van a registrar los [crones](https://es.wikipedia.org/wiki/Cron_(Unix)). 
+Se va a generar un cron por cada producto configurado. Si se modifican los parametros `step`
+o `active` en la configuracion del producto se debe ejecutar de nuevo `JobsUpdater` para 
+registrar los cambios en la tabla de crones.
