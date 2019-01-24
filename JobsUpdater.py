@@ -1,8 +1,18 @@
 from crontab import CronTab
 from modulos.Agenda import Agenda
 import re
+import argparse
 
-cron = CronTab(user='andres')
+parser = argparse.ArgumentParser(description='Procesamiento de productos.', formatter_class=argparse.RawTextHelpFormatter)
+
+parser.add_argument('-u', type=str, required=True,
+                    help='Usuario del SO donde se registraran los crones.')
+
+
+args = vars(parser.parse_args())
+
+
+cron = CronTab(user=args['u'])
 radar_job_name = re.compile('^backend_radar_job.*')
 ag = Agenda('../products')
 ag.loadProducts()
