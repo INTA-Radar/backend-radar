@@ -1,5 +1,5 @@
 # backend-radar
-Aplicación para la gestión de procesos que alimentan la web de radares INTA
+Aplicación para la gestión de procesos que alimentan la web de radares INTA.
 Este software permite gestionar _**radares**_ de los cuales se requieren obtener _**productos**_. Los productos posibles a generar son todos los
 que se encuentren disponibles en [radar-cmd](https://github.com/INTA-Radar/radar-cmd).
 
