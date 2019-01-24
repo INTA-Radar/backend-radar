@@ -17,7 +17,7 @@ Dentro de la carpeta raiz se encuentra un archivo de configuración _**confs.yml
 cual se deben establecer las siguientes propiedades:
 1. products_yml_dir: carpeta donde se encuentran los archivos yml 
 con la configuración de los productos a generar. El nombre de estos archivos
-**siempre** debe tener el formato `radar_prod_*.yml` donde en lugar del asterisco
+**siempre** deben tener el formato `radar_prod_*.yml` donde en lugar del asterisco
 se puede poner el nombre que se requiera. 
 En estos archivos se establecen los parametros del producto a generar:
     1. id: identificador del producto, debe ser un numero y en caso de existir 2 o mas
@@ -34,6 +34,9 @@ En estos archivos se establecen los parametros del producto a generar:
     
     5. active: si el producto se encuentra activo o no. Si se indica `false` se desactiva. 
 2. radars_yml_dir: directorio donde se encuentran los archivos yml de los radares disponibles.
+El nombre de estos archivos
+**siempre** deben tener el formato `radar*.yml` donde en lugar del asterisco
+se puede poner el nombre que se requiera. 
 Se deben establecer las siguientes propiedades:
     1. id: identificador del radar, es una cadena de texto y no debe repetirse.
     2. host: direccion IP del radar.
