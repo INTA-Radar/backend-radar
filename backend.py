@@ -39,7 +39,6 @@ ag = Agenda(getConfsValue('products_yml_dir'))
 ag.loadProducts()
 
 prod = ag.getProduct(args['p'])
-print(prod.radares)
 
 abspath = os.path.abspath(__file__)
 logger = getLog('backend_logger', getConfsValue('logs_dir')+'backend_log_product_' + str(prod.id))
@@ -59,7 +58,6 @@ prod_out_dir += '/'
 
 for r_id in prod.radares:
 
-    print('Generando producto '+str(prod.id)+ ' para radar '+r_id)
     logger.info('Generando producto '+str(prod.id)+ ' para radar '+r_id)
 
     # Si no existe la carpeta de descarga para el radar se crea dentro de la del producto

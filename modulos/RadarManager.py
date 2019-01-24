@@ -1,5 +1,5 @@
 import yaml
-import os, glob
+import glob
 
 class Radar:
     def __init__(self, **entries):

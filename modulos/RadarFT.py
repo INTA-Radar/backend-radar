@@ -1,4 +1,3 @@
-from ftplib import FTP
 from .LinuxFTPWrapper import LinuxFTPWrapper
 import re
 import datetime
@@ -33,7 +32,6 @@ class RadarFT(object):
 
         self.__radar = radar
 
-        FTP.debugging = 5
         self.__ftp = LinuxFTPWrapper(self.__radar.host, self.__radar.user, self.__radar.password)
         if self.__ftp.connect():
             self.__ftp.execute('cd '+self.__radar.vols_dir)  #   Se para en el directorio donde se encuentran
