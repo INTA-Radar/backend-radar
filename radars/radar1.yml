@@ -1,0 +1,6 @@
+id: PAR
+host: 172.17.0.2
+port: 21
+user: ftpuser
+password: changeme
+vols_dir: /ftp # Abs path

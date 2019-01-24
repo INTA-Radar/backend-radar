@@ -1,0 +1,6 @@
+id: PER
+host: 172.17.0.3
+port: 21
+user: ftpuser
+password: changeme
+vols_dir: /ftp

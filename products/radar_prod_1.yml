@@ -1,0 +1,26 @@
+id: 1
+
+# Parametros para radar-cmd.py
+
+method: grid          # metodo mediante el cual se obtienen los resultados [grid|simple]
+ele:                  # Solo en caso de method=simple, indica elevacion
+level: 0              # Solo en caso de method=grid, indica nivel
+
+mask:                 # Mascara a aplicar a los datos del radar.
+m: false              # =false --> una salida por cada radar, =true --> genera el mosaico de los radares
+do: res_from_bash     # carpeta donde se almacenan los resultados
+o: 240_dBZ_dpi_200    # sufijo al archivo de salida
+img: true             # = true --> genera el grafico
+netCDF: false         # = true --> guarda la grilla a un netCDF
+gtif: false           # = true --> genera un tif georeferenciado
+var: auto             # variable a procesar, auto=deteccion automatica
+img_dpi: 70           # en caso de generarse una imagen indica la calidad de la misma
+ib: false             # = true --> Ignorar basemap, solo aplica en caso de generar imagen
+img_type: PNG         # indica formato de la imagen a generar [PNG|JPEG]
+rain: false           # A la elevacion indicada le hace el procesamiento de precipitaciones
+
+# Para backend-radar.py
+radares: [PAR, PER]
+step: 2
+active: true
+changed: false

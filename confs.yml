@@ -1,0 +1,5 @@
+products_yml_dir: /home/andres/PycharmProjects/backend-radar/products/
+radars_yml_dir: /home/andres/PycharmProjects/backend-radar/radars/
+tmp_download_dir: /home/andres/PycharmProjects/backend-radar/temp/
+products_out_dir: /home/andres/PycharmProjects/backend-radar/out_dir/
+logs_dir: /home/andres/PycharmProjects/backend-radar/logs/
