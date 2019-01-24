@@ -2,6 +2,7 @@ from crontab import CronTab
 from modulos.Agenda import Agenda
 import re
 import argparse
+from modulos.Configurations import getConfsValue
 
 parser = argparse.ArgumentParser(description='Procesamiento de productos.', formatter_class=argparse.RawTextHelpFormatter)
 
@@ -14,9 +15,8 @@ args = vars(parser.parse_args())
 
 cron = CronTab(user=args['u'])
 radar_job_name = re.compile('^backend_radar_job.*')
-ag = Agenda('../products')
+ag = Agenda(getConfsValue('products_yml_dir'))
 ag.loadProducts()
-
 
 jobs_croned = set()
 for job in cron:
@@ -33,20 +33,23 @@ for id_nc in not_croned:
     prod = ag.getProduct(id_nc)
     print('Agregando producto ' + str(prod.id))
 
-    job = cron.new(command='~/radar_wrap_p3/bin/python3 ~/PycharmProjects/backend-radar/backend.py -p '+str(id_nc), comment='backend_radar_job '+str(id_nc))
+    job = cron.new(command=getConfsValue('python_bin')+'python3 '+getConfsValue('backend_dir')+'backend.py -p '+str(id_nc), comment='backend_radar_job '+str(id_nc))
     job.minute.every(prod.step)
     job.enable(prod.active)
 
-    ag.setNotChanged(prod.id)
+    #ag.setNotChanged(prod.id)
 
-for prod in ag.getChangedProducts():
+update = products.difference(not_croned)
+
+for prod_id in update:
+    prod = ag.getProduct(prod_id)
     print('Actualizando producto ' + str(prod.id))
     found = [job for job in cron.find_comment('backend_radar_job '+str(prod.id))]
     if len(found) == 1:
         job = found[0]
         job.minute.every(prod.step)
         job.enable(prod.active)
-        ag.setNotChanged(prod.id)
+        #ag.setNotChanged(prod.id)
     else:
         raise Exception('Hay mas de un job con el mismo comentario')
 

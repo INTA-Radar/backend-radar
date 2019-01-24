@@ -49,20 +49,20 @@ class Agenda(object):
         """
         return self.__products[id_prod]
 
-    def getChangedProducts(self):
-        res = []
-
-        for id_prod, p in self.__products.items():
-            if p.changed:
-                res.append(p)
-
-        return res
-
-    def setNotChanged(self, id_prod):
-        yaml = ruamel.yaml.YAML()
-
-        with open(self.__products[id_prod].file, 'r') as f:
-            yaml_dict = yaml.load(f) or {}
-        yaml_dict.update({'changed':False})
-        with open(self.__products[id_prod].file, 'w') as f:
-            yaml.dump(yaml_dict, f)
+    # def getChangedProducts(self):
+    #     res = []
+    #
+    #     for id_prod, p in self.__products.items():
+    #         if p.changed:
+    #             res.append(p)
+    #
+    #     return res
+    #
+    # def setNotChanged(self, id_prod):
+    #     yaml = ruamel.yaml.YAML()
+    #
+    #     with open(self.__products[id_prod].file, 'r') as f:
+    #         yaml_dict = yaml.load(f) or {}
+    #     yaml_dict.update({'changed':False})
+    #     with open(self.__products[id_prod].file, 'w') as f:
+    #         yaml.dump(yaml_dict, f)

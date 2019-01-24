@@ -99,8 +99,9 @@ if prod.m and not all_vol_found:
 
 # Genero el producto
 if len(files)>0:
-    logger.info("~/radar_wrap_p3/bin/python3 ~/PycharmProjects/radar-cmd/radar-cmd.py -pf " + prod.file + ' -f '+','.join(files)+ ' -do '+getConfsValue('products_out_dir'))
-    res = subprocess.call("~/radar_wrap_p3/bin/python3 ~/PycharmProjects/radar-cmd/radar-cmd.py -pf " + prod.file + ' -f '+','.join(files)+ ' -do '+prod_out_dir, shell=True)
+    radar_cmd_command = getConfsValue('python_bin')+'python3 '+getConfsValue('radar_cmd_dir')+'radar-cmd.py -pf ' + prod.file + ' -f '+','.join(files)+ ' -do '+getConfsValue('products_out_dir')
+    logger.info(radar_cmd_command)
+    res = subprocess.call(radar_cmd_command, shell=True)
     logger.info('radar-cmd exit('+str(res)+')')
     cleanTemp()
 else:
